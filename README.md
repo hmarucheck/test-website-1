@@ -58,9 +58,11 @@ python3 -m http.server 8000
 
 ## Deploying
 
-Pushed to GitHub Pages via `.github/workflows/pages.yml`. In the repository settings,
-set **Pages → Build and deployment → Source** to **GitHub Actions**; every push to the
-default branch then publishes the site.
+Published with GitHub Pages straight from the default branch. In the repository
+settings, under **Pages → Build and deployment**, set **Source** to *Deploy from a
+branch*, then choose branch `main` and folder `/ (root)`. Every push to `main` then
+republishes the site — no build, no Actions workflow. The `.nojekyll` file stops
+GitHub running Jekyll over the files.
 
 Using a custom domain instead? Replace `https://hmarucheck.github.io/test-website-1/`
 in `index.html` (canonical, Open Graph, JSON-LD), `robots.txt` and `sitemap.xml`, and add
