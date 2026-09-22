@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://hmarucheck.github.io/test-website-1/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hmarucheck.github.io/test-website-1/assets/veyloro-brand-hero.jpg</image:loc>
+      <image:title>Veyloro brand identity</image:title>
+      <image:caption>The Veyloro logo and wordmark shown on packaging, a tote bag and a phone app icon.</image:caption>
+    </image:image>
+  </url>
+</urlset>

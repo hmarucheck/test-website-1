@@ -1,0 +1,13 @@
+# robots.txt for Veyloro — https://hmarucheck.github.io/test-website-1/
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+# Common AI / search crawlers are welcome
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://hmarucheck.github.io/test-website-1/sitemap.xml
