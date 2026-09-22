@@ -86,8 +86,10 @@
   </div>
 </footer>
 
-<script src="config.js"></script>
-<script src="auth.js" defer></script>
+<!-- ?v= is bumped whenever config.js or auth.js changes: GitHub Pages caches
+     assets for about ten minutes, and a stale config.js means a dead button. -->
+<script src="config.js?v=2"></script>
+<script src="auth.js?v=2" defer></script>
 <script src="https://accounts.google.com/gsi/client" async defer onload="window.veyloroGsiReady && window.veyloroGsiReady()" onerror="window.veyloroGsiFailed && window.veyloroGsiFailed()"></script>
 <script src="main.js" defer></script>
 </body>

@@ -68,6 +68,10 @@ before it will work:
    One Tap / button flow.
 5. Put the ID in `googleClientId` in `config.js` and push.
 
+`signin.html` loads `config.js?v=N`. Bump that number whenever you change the client
+ID — GitHub Pages caches assets for roughly ten minutes, and a stale `config.js` shows
+the setup panel instead of the button.
+
 Client IDs are public by design and safe to commit; the client *secret* is not used
 here and must never be added to the repository. Until the ID is filled in, the page
 shows these steps instead of a button that cannot work.
