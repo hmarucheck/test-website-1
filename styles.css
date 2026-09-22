@@ -1132,5 +1132,3 @@ a:hover { color: var(--pop); }
 .auth-page .site-footer { padding-top: 1.5rem; }
 .site-header__actions--end { margin-inline-start: auto; }
 .site-footer__base--solo { border-top: 0; }
-
-.stars svg.is-empty { fill: none; stroke: var(--pop); stroke-width: 1.6; opacity: .55; }
