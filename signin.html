@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — Veyloro</title>
+<meta name="description" content="Sign in to your Veyloro account with Google to track orders, save shops and manage your seller dashboard.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#176369" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a2f33" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://hmarucheck.github.io/test-website-1/signin.html">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://accounts.google.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,600&family=Poppins:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.remove("no-js");</script>
+</head>
+<body class="auth-page">
+<span id="top" aria-hidden="true"></span>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header" data-header>
+  <div class="shell site-header__inner">
+    <a class="brand" href="./" aria-label="Veyloro — home">
+      <img class="brand__mark" src="assets/veyloro-mark.png" alt="" width="700" height="730" decoding="async">
+      <img class="brand__word" src="assets/veyloro-wordmark.png" alt="Veyloro" width="2089" height="630" decoding="async">
+    </a>
+    <div class="site-header__actions site-header__actions--end">
+      <a class="btn btn--ghost" href="./">Back to the marketplace</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="auth">
+  <div class="auth__card">
+    <img class="auth__mark" src="assets/veyloro-mark.png" alt="" width="700" height="730">
+    <h1>Sign in to Veyloro</h1>
+    <p class="auth__lede">Use your Google account to track orders, save shops and open a seller dashboard.</p>
+
+    <!-- Google Identity Services renders its own button into this element. -->
+    <div class="auth__google" data-google-button></div>
+
+    <p class="auth__status" data-auth-status role="status" aria-live="polite"></p>
+
+    <!-- Shown once a Google credential has been received. -->
+    <div class="auth__profile" data-signed-in hidden>
+      <img class="auth__avatar" data-profile-picture src="assets/veyloro-mark.png" alt="" width="56" height="56">
+      <p class="auth__name"><strong data-profile-name>—</strong><span data-profile-email>—</span></p>
+      <button class="btn btn--outline" type="button" data-signout>Sign out</button>
+    </div>
+
+    <!-- Shown when config.js has no client ID yet. -->
+    <div class="auth__setup" data-google-setup hidden>
+      <h2>Finish the Google setup</h2>
+      <p>Sign-in needs an OAuth client ID from Google. It takes a couple of minutes:</p>
+      <ol>
+        <li>Open the <a href="https://console.cloud.google.com/apis/credentials" rel="noopener" target="_blank">Google Cloud credentials page</a> and create a project if you don't have one.</li>
+        <li>Configure the <strong>OAuth consent screen</strong> (External, app name “Veyloro”, your email as support contact).</li>
+        <li>Choose <strong>Create credentials → OAuth client ID → Web application</strong>.</li>
+        <li>Under <strong>Authorised JavaScript origins</strong> add <code>https://hmarucheck.github.io</code> — and <code>http://localhost:8000</code> if you test locally. No redirect URI is needed.</li>
+        <li>Copy the client ID into <code>googleClientId</code> in <code>config.js</code> and push.</li>
+      </ol>
+      <p class="auth__setup-note">The client ID is public by design and safe to commit. The client <em>secret</em> is not used here and should never be added to this repository.</p>
+    </div>
+
+    <p class="auth__small">
+      By signing in you agree to the <a href="terms.html">Terms of Service</a>.
+    </p>
+  </div>
+
+  <p class="auth__aside">
+    This is a front-end demonstration. Google verifies who you are and returns a signed
+    ID token, which this page reads only to greet you — there is no Veyloro server behind
+    it, so no account is created and nothing is stored beyond this browser tab.
+  </p>
+</main>
+
+<footer class="site-footer">
+  <div class="shell site-footer__base site-footer__base--solo">
+    <p>&copy; <span data-year>2026</span> Veyloro.</p>
+    <p><a href="terms.html">Terms of Service</a></p>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="auth.js" defer></script>
+<script src="https://accounts.google.com/gsi/client" async defer onload="window.veyloroGsiReady && window.veyloroGsiReady()" onerror="window.veyloroGsiFailed && window.veyloroGsiFailed()"></script>
+<script src="main.js" defer></script>
+</body>
+</html>

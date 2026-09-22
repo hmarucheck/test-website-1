@@ -109,6 +109,19 @@
     input.addEventListener('input', function () { input.removeAttribute('aria-invalid'); });
   }
 
+  /* Back to top ----------------------------------------------------------- *
+   * The #top anchor must not live on the sticky header: a stuck header sits at
+   * the viewport top, so the browser "scrolls" to where you already are.       */
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href="#top"], a[href$="#top"]');
+    if (!link) return;
+    var url = new URL(link.href, location.href);
+    if (url.pathname !== location.pathname) return;
+    e.preventDefault();
+    window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+  });
+
   /* Footer year ---------------------------------------------------------- */
   var year = document.querySelector('[data-year]');
   if (year) year.textContent = String(new Date().getFullYear());

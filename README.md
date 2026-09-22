@@ -14,7 +14,11 @@ vanilla JavaScript. No build step, no framework, no tracking.
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | The whole marketing page, with structured data in the head |
+| `index.html` | The marketing page, with structured data in the head |
+| `terms.html` | Terms of Service |
+| `signin.html` | Sign in with Google |
+| `config.js` | Site configuration — the Google OAuth client ID lives here |
+| `auth.js` | Google Identity Services integration |
 | `styles.css` | Design tokens, layout and components (light + dark themes) |
 | `main.js` | Sticky header, mobile nav, scroll reveals, count-up stats, signup validation |
 | `assets/` | Brand artwork, logo cutouts, icons, Open Graph card |
@@ -48,6 +52,31 @@ Brand colours: teal `#176369`, deep teal `#0a2f33`, orange `#f09b57`, cream `#fa
   skip link, visible focus rings and a `prefers-reduced-motion` fallback
 - Fast by construction: no framework, WebP with JPEG fallback, `width`/`height` on every
   image to avoid layout shift, `preload` on the LCP image, deferred script
+
+## Sign in with Google
+
+`signin.html` uses Google Identity Services — the real SDK from
+`accounts.google.com/gsi/client`, not a mock button. It needs an OAuth client ID
+before it will work:
+
+1. Open the [Google Cloud credentials page](https://console.cloud.google.com/apis/credentials)
+   and create a project if you need one.
+2. Configure the **OAuth consent screen** (External; app name, support email).
+3. **Create credentials → OAuth client ID → Web application.**
+4. Under **Authorised JavaScript origins**, add `https://hmarucheck.github.io`, plus
+   `http://localhost:8000` for local testing. No redirect URI is required for the
+   One Tap / button flow.
+5. Put the ID in `googleClientId` in `config.js` and push.
+
+Client IDs are public by design and safe to commit; the client *secret* is not used
+here and must never be added to the repository. Until the ID is filled in, the page
+shows these steps instead of a button that cannot work.
+
+**On verification:** Google returns a signed JWT ID token. Decoding it in the browser,
+as `auth.js` does to greet the user, proves nothing — anyone can craft a JWT. A real
+deployment must post the token to a server and verify its signature, `aud` and `iss`
+against Google's published keys before creating a session. This site has no backend,
+so nothing is stored beyond the browser tab.
 
 ## Local preview
 

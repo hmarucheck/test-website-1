@@ -2,6 +2,7 @@
 User-agent: *
 Allow: /
 Disallow: /404.html
+# signin.html carries a noindex tag rather than a Disallow, so crawlers can read it
 
 # Common AI / search crawlers are welcome
 User-agent: Googlebot
