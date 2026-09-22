@@ -13,5 +13,5 @@
  * button that cannot work.
  */
 window.VEYLORO_CONFIG = {
-  googleClientId: ""
+  googleClientId: "331373579687-27uvddg3g5rbot6qstvlndmkvlng9vvv.apps.googleusercontent.com"
 };
